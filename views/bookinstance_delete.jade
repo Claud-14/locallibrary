@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 #{title}:
+    a(href=bookinstance.url)= bookinstance._id
+    p= bookinstance.imprint
+
+    p Do you really want to delete this copy?
+
+    form(method='POST' action='')
+        div.form-group
+            input#copyid.form-control(type='hidden', name='copyid', required='true', value=bookinstance._id)
+        
+        button.btn.btn-primry(type='submit') Delete

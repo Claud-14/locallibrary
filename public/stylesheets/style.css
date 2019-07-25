@@ -1,0 +1,49 @@
+body {
+  padding: 50px;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.sidebar-nav
+{
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.multi-select
+{
+  margin-top: 0.5em;
+  background-color:inherit;
+}
+
+.entries
+{
+  list-style-type: none;
+  margin-left: -1.5em;
+}
+.entries li
+{
+  background-color: inherit;
+  padding: 0.5em;
+}
+
+.entries li:nth-child(2n-1)
+{
+  background-color: rgb(235, 235, 235);
+  border-radius: 8px;
+}
+
+.multi-select
+{
+  width: 50vw;
+  height: 12em;
+  background-color:rgb(235, 235, 235);
+  overflow-y: scroll;
+  border:1px solid silver;
+  border-radius: 8px;
+}
+

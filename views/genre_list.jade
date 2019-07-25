@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+
+    ul.entries
+        each genre in genre_list
+            li
+                a(href=genre.url) #{genre.name}
+
+                span(style='float: right;')
+                    a(href=genre.url+'/update') Update
+                    |  | 
+                    a(href=genre.url+'/delete') Delete
+        else
+            li There are no genres.

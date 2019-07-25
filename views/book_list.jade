@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1= title
+
+    ul.entries
+        - book_list.sort(function(a, b) {let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB) ? -1: (textA > textB) ? 1 : 0;});
+        each book, index in book_list
+            //- var li_style = 'margin-top: 0.5em;' + (index % 2 ? 'background-color:gainsboro;' : 'background-color:inherit;');
+                li(style=li_style)
+            li
+                a(href=book.url) #{book.title}
+                |  (
+                for author, i in book.author
+                    a(href=author.url) #{author.name}
+                    if (i < book.author.length - 1)
+                        |, 
+                    else
+                        |)
+                
+                span(style='float: right;')
+                    a(href=book.url+'/update') Update
+                    |  | 
+                    a(href=book.url+'/delete') Delete
+        else
+            li There are no books.
