@@ -13,7 +13,8 @@ var rtRouter = require('./routes/catalog');
 var app = express();
 
 //Set up mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/test2';
+var dev_db_url = 'mongodb://127.0.0.1/test2';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/dbtest', require('./routes/dbtest'));
+//app.use('/dbtest', require('./routes/dbtest'));
 app.use('/wiki', rtWiki);
 app.use('/catalog', rtRouter);
 
